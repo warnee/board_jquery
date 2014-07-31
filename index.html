@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>backbone board</title>
+
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <script type="text/javascript" src="http://twitter.github.com/hogan.js/builds/3.0.1/hogan-3.0.1.js"></script>
+    <script type="text/javascript" src="js/ajaxutil.js"></script>
+    <script type="text/javascript" src="js/commutil.js"></script>
+
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>
+    <header id="board">
+        <h1>Backbone Board</h1>
+    </header>
+
+    <div id="wrap">
+    </div>
+</body>
+
+<script type="text/template" id="list-Template">
+    <section id="listSection">
+        <section id="list">
+            <ul>
+                {{#boardlist}}
+                <li><div><span class="subject"><a href="#" class="linkview" data-no="{{no}}">{{subject}}</a></span></div></li>
+                {{/boardlist}}
+            </ul>
+        </section>
+        <section id="input">
+            <button class="linkwrite">write</button>
+        </section>
+    </section>
+</script>
+
+<script type="text/template" id="write-Template">
+    <section id="writeSection">
+        <div><input type="text" id="write_subject" /></div>
+        <div><textarea id="write_contents"></textarea></div>
+        <div>
+            <button class="linklist">Cancel</button><button class="write">Save</button>
+        </div>
+    </section>
+</script>
+
+<script type="text/template" id="edit-Template">
+    <section id="editSection">
+        <div><input type="text" id="edit_subject" value="{{subject}}" /></div>
+        <div><textarea id="edit_contents">{{contents}}</textarea></div>
+        <div>
+            <button class="linkview" data-no="{{no}}">Cancel</button><button class="edit" data-no="{{no}}">Save</button>
+        </div>
+    </section>
+</script>
+
+<script type="text/template" id="view-Template">
+    <section id="viewSection">
+        <div><span>{{subject}}</span></div>
+        <div><span>{{contents}}</span></div>
+        <div>
+            <button class="linklist">List</button><button class="linkedit" data-no="{{no}}">Edit</button>
+        </div>
+    </section>
+</script>
+
+</html>
